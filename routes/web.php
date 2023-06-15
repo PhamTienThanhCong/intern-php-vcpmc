@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RecordStoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,23 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-})->name('login');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/reset-password', [AuthController::class, 'showResetPasswordForm'])->name('password.request');
+Route::get('/reset-password-alert', [AuthController::class, 'showResetPasswordAlert'])->name('password.alert');
+Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('password.change');
 
-Route::get('/reset-password', function () {
-    return view('auth.reset-password');
-})->name('password.request');
-
-Route::get('/reset-password-alert', function () {
-    return view('auth.reset-password-alert');
-})->name('password.alert');
-
-Route::get('/change-password', function () {
-    $token = false;
-    if ($token) {
-        return view('auth.change-password');
-    }else{
-        return view('auth.reset-password-error');
-    }
-})->name('password.change');
+Route::resource('record-store', RecordStoreController::class)->names([
+    'index' => 'RecordStore.index',
+    'create' => 'RecordStore.create',
+    'store' => 'RecordStore.store',
+    'edit' => 'RecordStore.edit',
+    'update' => 'RecordStore.update',
+    'show' => 'RecordStore.show',
+    'destroy' => 'RecordStore.destroy',
+]);
