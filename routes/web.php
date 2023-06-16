@@ -20,12 +20,14 @@ Route::get('/reset-password', [AuthController::class, 'showResetPasswordForm'])-
 Route::get('/reset-password-alert', [AuthController::class, 'showResetPasswordAlert'])->name('password.alert');
 Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('password.change');
 
+Route::get('/record-store/approve', [RecordStoreController::class, 'approve'])->name('RecordStore.approve');
+
 Route::resource('record-store', RecordStoreController::class)->names([
     'index' => 'RecordStore.index',
-    'create' => 'RecordStore.create',
-    'store' => 'RecordStore.store',
     'edit' => 'RecordStore.edit',
     'update' => 'RecordStore.update',
     'show' => 'RecordStore.show',
     'destroy' => 'RecordStore.destroy',
+])->except([
+    'create', 'store' // Loại bỏ các phương thức 'create' và 'store'
 ]);

@@ -5,7 +5,7 @@
 @section('content')
     @include('components.paging')
     <h1>
-        Kho bản ghi
+        Phê duyệt bản ghi
     </h1>
 
     <div class="input-search">
@@ -37,36 +37,19 @@
                     <option value="">Ballad</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="">
-                    Thời gian sử dụng
-                </label>
-                <select name="" id="">
-                    <option value="">Tất cả</option>
-                    <option value="">Pop</option>
-                    <option value="">EDM</option>
-                    <option value="">Ballad</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="">
-                    Trạng thái
-                </label>
-                <select name="" id="">
-                    <option value="">Tất cả</option>
-                    <option value="">Pop</option>
-                    <option value="">Duyệt bởi người dùng</option>
-                    <option value="">Ballad</option>
-                </select>
-            </div>
             <div class="action__page">
-                <a href="{{ route('RecordStore.approve') }}">
-                    <i class="fa-regular fa-pen-to-square"></i>
+                <a href="">
+                    <i class="fa-solid fa-check" style="color: #0FBF00"></i>
                     <p>
-                        Quản lý<br>
-                        phê duyệt
+                        Phê duyệt
                     </p>
                 </a>
+                <div style="margin-top: 20px" class="open-modal-active">
+                    <i class="fa-solid fa-xmark" style="color: #FF4747"></i>
+                    <p>
+                        Từ chối
+                    </p>
+                </div>
             </div>
         </form>
         <div class="choose-option">
@@ -82,13 +65,13 @@
             <thead>
                 <tr>
                     <th>
+                        <input type="checkbox" class="table__checkbox">
+                    </th>
+                    <th>
                         STT
                     </th>
                     <th>
                         Tên bản ghi
-                    </th>
-                    <th>
-                        Mã ISRC
                     </th>
                     <th>
                         Thời lượng
@@ -100,29 +83,29 @@
                         Tác giả
                     </th>
                     <th>
-                        Thể loại
+                        Mã ISRC
                     </th>
                     <th>
-                        Định dạng
+                        Số hợp đồng
                     </th>
                     <th>
-                        Thời hạn sử dụng
+                        Ngày tải
                     </th>
-                    <th colspan="2">
+                    <th colspan="1">
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @for ($i = 0; $i < 12; $i++)
                     <tr>
+                        <td style="text-align: left">
+                            <input type="checkbox" class="table__checkbox">
+                        </td>
                         <td>
                             {{ $i + 1 }}
                         </td>
                         <td>
                             Bản ghi {{ $i + 1 }}
-                        </td>
-                        <td>
-                            123456789
                         </td>
                         <td>
                             00:00:00
@@ -134,18 +117,13 @@
                             Tác giả {{ $i + 1 }}
                         </td>
                         <td>
-                            Thể loại {{ $i + 1 }}
+                            123456789
                         </td>
                         <td>
-                            Định dạng {{ $i + 1 }}
+                            123456789
                         </td>
                         <td>
                             01/01/2021
-                        </td>
-                        <td class="table__action">
-                            <a href="">
-                                Cập nhập
-                            </a>
                         </td>
                         <td class="table__action">
                             Nghe
@@ -180,13 +158,29 @@
             </div>
         </div>
     </div>
+    <div class="modal-view-action">
+        <form class="modal-content">
+            <h2>
+                Hủy hợp đồng khai thác
+            </h2>
+            <textarea name="" placeholder="Cho chúng tôi biết lý do hủy hợp đồng khai thác này..."></textarea>
+            <div class="button-group">
+                <button class="btn">
+                    Hủy hợp đồng
+                </button>
+                <button type="button" class="btn btn-outline close-modal-active" >
+                    Quay lại
+                </button>
+            </div>
+        </form>
+    </div>
 @endsection
 
 
 @section('script')
     <script>
         $(document).ready(function() {
-            $('.table__action').eq(1).click(function() {
+            $('.table__action').eq(0).click(function() {
                 $('.modal-view').css('display', 'flex');
             });
 
@@ -201,6 +195,37 @@
                 }
             });
 
+            $('.open-modal-active').click(function() {
+                $('.modal-view-action').css('display', 'flex');
+            });
+
+            $('.close-modal-active').click(function() {
+                $('.modal-view-action').css('display', 'none');
+            });
+
         });
+        let checkboxes = document.querySelectorAll('.table__checkbox');
+        let checkboxAll = checkboxes[0];
+        // Bỏ đi checkbox đầu tiên
+        checkboxes = [...checkboxes].slice(1);
+
+        checkboxAll.addEventListener('change', function() {
+            checkboxes.forEach((item) => {
+                item.checked = this.checked;
+            });
+        });
+
+        checkboxes.forEach((item) => {
+            item.addEventListener('change', function() {
+                if (!this.checked) {
+                    checkboxAll.checked = false;
+                } else {
+                    // Kiểm tra xem tất cả các checkbox còn lại đã được checked hay chưa
+                    const allChecked = [...checkboxes].every((checkbox) => checkbox.checked);
+                    checkboxAll.checked = allChecked;
+                }
+            });
+        });
+
     </script>
 @endsection

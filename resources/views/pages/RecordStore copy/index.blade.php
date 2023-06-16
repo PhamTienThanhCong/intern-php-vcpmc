@@ -60,7 +60,7 @@
                 </select>
             </div>
             <div class="action__page">
-                <a href="{{ route('RecordStore.approve') }}">
+                <a href="">
                     <i class="fa-regular fa-pen-to-square"></i>
                     <p>
                         Quản lý<br>
@@ -167,40 +167,4 @@
             </div>
         </div>
     </div>
-
-    <div class="modal-view">
-        <div class="modal-content">
-            {{-- <video src="{{ asset('upload/video.mp4') }}"></video> --}}
-            <video width="320" height="240" controls>
-                <source src="{{ asset('upload/video.mp4') }}" type="video/mp4">
-            </video>
-            {{-- close --}}
-            <div class="close">
-                <i class="fa-solid fa-times"></i>
-            </div>
-        </div>
-    </div>
-@endsection
-
-
-@section('script')
-    <script>
-        $(document).ready(function() {
-            $('.table__action').eq(1).click(function() {
-                $('.modal-view').css('display', 'flex');
-            });
-
-            $('.close').click(function() {
-                $('.modal-view').css('display', 'none');
-            });
-
-            // click without .modal-content to close modal
-            $('.modal-view').click(function(e) {
-                if (!$(e.target).is('.modal-content') && !$(e.target).is('video')) {
-                    $('.modal-view').css('display', 'none');
-                }
-            });
-
-        });
-    </script>
 @endsection
