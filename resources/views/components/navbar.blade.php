@@ -11,7 +11,7 @@
     </div>
     <div class="navbar__menu">
         <ul class="navbar__menu__list">
-            <a href="" class="navbar__menu__list__item__link">
+            <a href="{{ route('RecordStore.index') }}" class="navbar__menu__list__item__link">
                 <li class="navbar__menu__list__item{{ request()->routeIs('RecordStore.*') ? ' active' : '' }}">
                     <i class="fa-solid fa-shop"></i>
                     Kho bản ghi
