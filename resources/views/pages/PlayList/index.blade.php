@@ -19,6 +19,15 @@
                 <i class="fa-solid fa-table-cells-large"></i>
             </a>
         </div>
+        <div class="action__page">
+            <a href="{{ route('PlayList.create') }}">
+                <i class="fa-solid fa-plus"></i>
+                <p>
+                    Thêm<br>
+                    Playlist
+                </p>
+            </a>
+        </div>
     </div>
 
     <div class="table">
