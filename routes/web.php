@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PlayListController;
 use App\Http\Controllers\RecordStoreController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +31,14 @@ Route::resource('record-store', RecordStoreController::class)->names([
     'destroy' => 'RecordStore.destroy',
 ])->except([
     'create', 'store' // Loại bỏ các phương thức 'create' và 'store'
+]);
+
+Route::resource('play-list', PlayListController::class)->names([
+    'index' => 'PlayList.index',
+    'create' => 'PlayList.create',
+    'store' => 'PlayList.store',
+    'edit' => 'PlayList.edit',
+    'update' => 'PlayList.update',
+    'show' => 'PlayList.show',
+    'destroy' => 'PlayList.destroy',
 ]);
