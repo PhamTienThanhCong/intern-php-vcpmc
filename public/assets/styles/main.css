@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     color: white;
+    
 }
 
 a{
@@ -401,6 +402,7 @@ body{
 .table table td{
     color: white;
     padding-left: 20px;
+    font-weight: 400;
 }
 
 .table table tr{

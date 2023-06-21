@@ -99,7 +99,7 @@
                             Người tạo {{ $i + 1 }}
                         </td>
                         <td class="table__action">
-                            <a href="{{ route('PlayList.edit', $i) }}">
+                            <a href="{{ route('PlayList.show', $i) }}">
                                 Chi tiết
                             </a>
                         </td>

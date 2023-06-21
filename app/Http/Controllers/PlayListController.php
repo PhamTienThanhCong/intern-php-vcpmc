@@ -45,7 +45,7 @@ class PlayListController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.PlayList.show');
     }
 
     /**
