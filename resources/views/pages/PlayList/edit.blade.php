@@ -22,6 +22,10 @@
                 $('.modal-view').css('display', 'none');
             }
         });
+        // click .btn-active-form to submit form
+        $('.btn-active-form').click(function() {
+            $('#information').submit();
+        });
     </script>
 @endsection
 
@@ -44,24 +48,22 @@
     </div>
     <div class="group-flex">
         <div class="action__page">
-            <a href="{{ route('PlayList.edit', 1) }}">
-                <i class="fa-regular fa-pen-to-square"></i>
+            <a href="{{ route('PlayList.edit2', 1) }}">
+                <i class="fa-solid fa-plus"></i>
                 <p>
-                    Chỉnh sửa
+                    Thêm <br>
+                    bản ghi
                 </p>
             </a>
-            <div style="margin-top: 20px" class="open-modal-active">
-                <i class="fa-solid fa-trash-can" style="color: #FF4747"></i>
-                <p>
-                    Xóa playlist
-                </p>
-            </div>
         </div>
-        <div class="infomation">
+        <form class="infomation" id="information">
             <img src="{{ asset('upload/logo2.png') }}" alt="">
-            <h2>
-                Top ca khúc 2021
-            </h2>
+            <div class="form-group form-group__info">
+                <label for="">
+                    Tiêu đề:  <span class="text-danger">*</span>
+                </label>
+                <input class="input" type="text" name="" required value="Top Ca khúc 2021">
+            </div>
             <table>
                 <tr>
                     <th class="title-table">
@@ -88,34 +90,31 @@
                     </th>
                 </tr>
             </table>
-            <div class="content-information">
-                Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt labore et dolore magna aliqua.
+            <div class="form-group form-group__info">
+                <label for="">
+                    Mô tả
+                </label>
+                <textarea class="input" name="" id="" cols="30" rows="10">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua.</textarea>
             </div>
-            <div class="list-topic">
-                @for ($i = 0; $i < 6; $i++)
-                <div class="topic-music">
-                    <i class="fa-solid fa-circle"></i>
-                    chu de 1
-                </div>
-                @endfor
+            <div class="form-group form-group__info">
+                <label for="">
+                    Chủ đề
+                </label>
+                <textarea class="input" name="" id="" cols="30" rows="10">
+
+                </textarea>
             </div>
             <div class="option-active">
                 <div class="option">
-                    <i class="fa-solid fa-earth-asia"></i>
-                    Hiển thị ở chế độ công 
+                    <input type="checkbox" id="hienthi">
+                    <label for="hienthi">Chế độ công </label>
                 </div>
-                <div class="option option__active">
-                    <i class="fa-solid fa-shuffle"></i>
-                    Phát ngẫu nhiên
-                </div>
-                <div class="option">
-                    <i class="fa-solid fa-repeat"></i>
-                    Lặp lại
-                </div>
+                <p>
+                    <span class="text-danger">*</span>
+                    là những trường thông tin bắt buộc
+                </p>
             </div>
-        </div>
+        </form>
         <div class="table table-group">
             <table>
                 <thead>
@@ -176,5 +175,15 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="button-group">
+        <a href="{{ Route('PlayList.index') }}">
+            <button type="button" class="btn btn-outline" >
+                Hủy
+            </button>
+        </a>
+        <button class="btn btn-active-form">
+            Lưu
+        </button>
     </div>
 @endsection

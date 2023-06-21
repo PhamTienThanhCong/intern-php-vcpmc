@@ -33,6 +33,8 @@ Route::resource('record-store', RecordStoreController::class)->names([
     'create', 'store' // Loại bỏ các phương thức 'create' và 'store'
 ]);
 
+Route::get('/play-list/{id}/edit-ban-ghi', [PlayListController::class, 'edit2'])->name('PlayList.edit2');
+
 Route::resource('play-list', PlayListController::class)->names([
     'index' => 'PlayList.index',
     'create' => 'PlayList.create',

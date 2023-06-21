@@ -8,6 +8,7 @@ function active_navbar_mini(){
 
     // chiều rộng của class container là 100% - 40px
     document.querySelector('.container').style.width = 'calc(100% - 40px)';
+    document.querySelector('.container').style.marginLeft = '40px';
 
     icon_right_navbar.addEventListener('click', () => {
         main_navbar.classList.toggle('active-navbar');

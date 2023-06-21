@@ -23,7 +23,7 @@ class PlayListController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.PlayList.create');
     }
 
     /**
@@ -56,9 +56,13 @@ class PlayListController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('pages.PlayList.edit');
     }
 
+    public function edit2($id)
+    {
+        return view('pages.PlayList.edit2');
+    }
     /**
      * Update the specified resource in storage.
      *

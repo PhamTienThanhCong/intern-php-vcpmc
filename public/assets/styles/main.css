@@ -158,6 +158,8 @@ body{
     background: #020220;
     border-radius: 0px 24px 24px 0px;
     display: none;
+    position: fixed;
+    top: 0;
 }
 
 .navbar-hidden i{
@@ -525,4 +527,8 @@ body{
     border: 1px solid #727288;
     border-radius: 8px;
     color: #F5F5FF;
+}
+
+.text-danger{
+    color: red;
 }
