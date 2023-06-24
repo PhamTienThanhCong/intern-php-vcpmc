@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PlayListController;
 use App\Http\Controllers\RecordStoreController;
+use App\Http\Controllers\SchedulePlaylistController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,4 +44,15 @@ Route::resource('play-list', PlayListController::class)->names([
     'update' => 'PlayList.update',
     'show' => 'PlayList.show',
     'destroy' => 'PlayList.destroy',
+]);
+
+
+Route::resource('schedule-play', SchedulePlaylistController::class)->names([
+    'index' => 'SchedulePlay.index',
+    'create' => 'SchedulePlay.create',
+    'store' => 'SchedulePlay.store',
+    'edit' => 'SchedulePlay.edit',
+    'update' => 'SchedulePlay.update',
+    'show' => 'SchedulePlay.show',
+    'destroy' => 'SchedulePlay.destroy',
 ]);

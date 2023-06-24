@@ -530,9 +530,13 @@ body{
 }
 
 .text-danger{
-    color: red;
+    color: red !important;
 }
 
 .text-center{
     text-align: center;
+}
+
+.text-under{
+    text-decoration: underline;
 }

@@ -23,8 +23,8 @@
                     PlayList
                 </li>
             </a>
-            <a href="" class="navbar__menu__list__item__link">
-                <li class="navbar__menu__list__item">
+            <a href="{{ route('SchedulePlay.index') }}" class="navbar__menu__list__item__link">
+                <li class="navbar__menu__list__item{{ request()->routeIs('SchedulePlay.*') ? ' active' : '' }}">
                     <i class="fa-regular fa-calendar-days"></i>
                     Lập lịch phát
                 </li>
