@@ -540,6 +540,10 @@ body{
     text-decoration: underline;
 }
 
+.text-success{
+    color: #00FF00;
+}
+
 .switch-tab{
     display: flex;
     margin-top: 24px;
