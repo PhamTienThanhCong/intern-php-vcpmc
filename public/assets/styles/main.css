@@ -19,6 +19,7 @@ body{
 .container{
     width: calc(100% - 170px);
     padding: 0 50px;
+    margin-left: 170px;
 }
 
 .navbar{
@@ -30,6 +31,8 @@ body{
     background-color: #020220;    
     min-height: 100vh;
     border-radius: 0px 24px 24px 0px;
+    position: fixed;
+    top: 0;
 }
 
 .navbar__logo{
