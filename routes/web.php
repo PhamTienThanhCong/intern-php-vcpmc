@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PlayListController;
 use App\Http\Controllers\RecordStoreController;
 use App\Http\Controllers\SchedulePlaylistController;
@@ -79,4 +80,14 @@ Route::resource('device-manage', DeviceController::class)->names([
     'update' => 'Manage.Device.update',
     'show' => 'Manage.Device.show',
     'destroy' => 'Manage.Device.destroy',
+]);
+
+Route::resource('partner-manager', PartnerController::class)->names([
+    'index' => 'Manage.Partner.index',
+    'create' => 'Manage.Partner.create',
+    'store' => 'Manage.Partner.store',
+    'edit' => 'Manage.Partner.edit',
+    'update' => 'Manage.Partner.update',
+    'show' => 'Manage.Partner.show',
+    'destroy' => 'Manage.Partner.destroy',
 ]);
