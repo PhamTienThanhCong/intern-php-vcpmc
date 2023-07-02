@@ -31,4 +31,13 @@ class AuthController extends Controller
             return view('auth.reset-password-error');
         }
     }
+
+    public function myAccount()
+    {
+        return view('auth.my-account');
+    }
+    public function myAccountEdit()
+    {
+        return view('auth.my-account-edit');
+    }
 }

@@ -25,6 +25,9 @@ Route::get('/reset-password', [AuthController::class, 'showResetPasswordForm'])-
 Route::get('/reset-password-alert', [AuthController::class, 'showResetPasswordAlert'])->name('password.alert');
 Route::get('/change-password', [AuthController::class, 'showChangePasswordForm'])->name('password.change');
 
+Route::get('/my-account', [AuthController::class, 'myAccount'])->name('my-account');
+Route::get('/my-account/edit', [AuthController::class, 'myAccountEdit'])->name('my-account.edit');
+
 Route::get('/record-store/approve', [RecordStoreController::class, 'approve'])->name('RecordStore.approve');
 
 Route::resource('record-store', RecordStoreController::class)->names([
