@@ -3,13 +3,14 @@
 @section('title', 'Kho bản ghi')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('assets/styles/partner-manage.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/styles/device-manage.css') }}">
 @endsection
 
 @section('script')
-<script>
-    active_navbar_mini();
-    function togglePasswordVisibility(inputId) {
+    <script>
+        active_navbar_mini();
+
+        function togglePasswordVisibility(inputId) {
             var passwordInput = document.getElementById(inputId);
             var eyeIcon = document.querySelector(`#${inputId} + .btn-eye i`);
             if (passwordInput.type === 'password') {
@@ -22,13 +23,13 @@
                 eyeIcon.classList.add('fa-eye');
             }
         }
-</script>
+    </script>
 @endsection
 
 @section('content')
     {{-- @include('components.paging') --}}
     <h1>
-        Cập nhập thông tin
+        Thêm thiết bị mới
     </h1>
 
     <form class="group-flex">
@@ -37,40 +38,62 @@
                 <tbody>
                     <tr>
                         <td>
-                            Tên người dùng: <span class="text-danger">*</span>
+                            Tên thiết bị: <span class="text-danger">*</span>
                         </td>
                         <td class="form-input">
-                            <input class="input" type="text" name="" value="Người dùng A">
+                            <input class="input" type="text" name="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Email: <span class="text-danger">*</span>
+                            SKU/ID: <span class="text-danger">*</span>
                         </td>
                         <td class="form-input">
-                            <input class="input" type="text" name="" value="example@example.com">
+                            <input class="input" type="text" name="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Số điện thoại: <span class="text-danger">*</span>
+                            Địa chỉ Mac: <span class="text-danger">*</span>
                         </td>
                         <td class="form-input">
-                            <input class="input" type="text" name="" value="0987654321">
+                            <input class="input" type="text" name="">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Vai trò: <span class="text-danger">*</span>
+                            Thời hạn bảo hành: <span class="text-danger">*</span>
+                        </td>
+                        <td class="form-input">
+                            <input class="input" type="date" name="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Label: <span class="text-danger">*</span>
                         </td>
                         <td class="form-input">
                             <select name="" class="input">
-                                <option value="QA">QA</option>
-                                <option value="Super Admin">Super Admin</option>
-                                <option value="Group Admin">Group Admin</option>
-                                <option value="Sub - User">Sub - User</option>
-                                <option value="Content Manager">Content Manager</option>
+                                <option value="">Label</option>
                             </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Thông tin: <span class="text-danger">*</span>
+                        </td>
+                        <td class="form-input">
+                            <select name="" class="input">
+                                <option value="">Thông tin</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ghi chú: <span class="text-danger">*</span>
+                        </td>
+                        <td class="form-input">
+                            <textarea name="" id="" class="input"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -89,7 +112,7 @@
                             Tên đăng nhập: <span class="text-danger">*</span>
                         </td>
                         <td class="form-input">
-                            <input class="input" type="text" name="" value="username123">
+                            <input class="input" type="text" name="">
                         </td>
                     </tr>
                     <tr>
@@ -97,7 +120,7 @@
                             Mật khẩu: <span class="text-danger">*</span>
                         </td>
                         <td class="form-input">
-                            <input class="input" type="password" id="passwordInput1" name="" value="your_password_here">
+                            <input class="input" type="password" id="passwordInput1" name="">
                             <button type="button" class="btn-eye" onclick="togglePasswordVisibility('passwordInput1')">
                                 <i class="fa-regular fa-eye"></i>
                             </button>
@@ -108,7 +131,7 @@
                             Nhập lại mật khẩu: <span class="text-danger">*</span>
                         </td>
                         <td class="form-input">
-                            <input class="input" type="password" id="passwordInput2" name="" value="your_password_here">
+                            <input class="input" type="password" id="passwordInput2" name="">
                             <button type="button" class="btn-eye" onclick="togglePasswordVisibility('passwordInput2')">
                                 <i class="fa-regular fa-eye"></i>
                             </button>
@@ -116,17 +139,10 @@
                     </tr>
                     <tr>
                         <td>
-                            Trạng thái: <span class="text-danger">*</span>
+                            Vị trí: <span class="text-danger">*</span>
                         </td>
-                        <td class="form-input form-group-flex">
-                            <div style="display: flex">
-                                <input type="radio" name="active" id="active-input" checked>
-                                <label for="active-input">Đã kích hoạt</label>
-                            </div>
-                            <div style="display: flex">
-                                <input type="radio" name="active" id="unactive-input">
-                                <label for="unactive-input">Ngưng kích hoạt</label>
-                            </div>
+                        <td class="form-input">
+                            <input class="input" type="text" name="">
                         </td>
                     </tr>
                 </tbody>
@@ -142,5 +158,5 @@
                 Lưu
             </button>
         </div>
-    </form>    
+    </form>
 @endsection

@@ -23,7 +23,7 @@ class DeviceController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.device.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class DeviceController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.device.show');
     }
 
     /**
