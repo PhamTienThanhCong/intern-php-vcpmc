@@ -8,6 +8,7 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
+        // test
         return view('auth.login');
     }
 
